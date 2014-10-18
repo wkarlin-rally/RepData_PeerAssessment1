@@ -113,7 +113,8 @@ summary(data)
 ```
 
 The number of missing observations can be seen via the summary function; there are 2,304 time intervals that are missing data.  
-This is equivalent to 8 days of missing data 2304/288 = 8.
+This is equivalent to 8 days of missing data 2304/288 = 8.  
+The basic strategy to deal with the missing data is to find the mean number of steps taken for each time interval, and then insert that mean value into any same time interval that has an NA value.
 
 
 ```r
@@ -160,7 +161,7 @@ summary(final_data)
 ##                   (Other)   :15840
 ```
 
-Yes, we can see there are no longer any NAs.
+Yes, we can see there are no longer any NAs.  Next, plot the histogram of total number of steps taken with the imputed data.
 
 
 ```r

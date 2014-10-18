@@ -124,7 +124,7 @@ x_time[which.max(x_time$mean_steps),]</code></pre>
 ##  3rd Qu.: 12.00   2012-10-05:  288   3rd Qu.:1766.2  
 ##  Max.   :806.00   2012-10-06:  288   Max.   :2355.0  
 ##  NA's   :2304     (Other)   :15840</code></pre>
-<p>The number of missing observations can be seen via the summary function; there are 2,304 time intervals that are missing data.<br />This is equivalent to 8 days of missing data 2304/288 = 8.</p>
+<p>The number of missing observations can be seen via the summary function; there are 2,304 time intervals that are missing data.<br />This is equivalent to 8 days of missing data 2304/288 = 8.<br />The basic strategy to deal with the missing data is to find the mean number of steps taken for each time interval, and then insert that mean value into any same time interval that has an NA value.</p>
 <pre class="r"><code>##now to populate missing data 
 ## find mean for each interval - ignoring NAs, gives same mean as reported in part 2
 impute_data &lt;- data %.%
@@ -163,7 +163,7 @@ summary(final_data)</code></pre>
 ##  3rd Qu.: 27.00   2012-10-05:  288   3rd Qu.:1766.2  
 ##  Max.   :806.00   2012-10-06:  288   Max.   :2355.0  
 ##                   (Other)   :15840</code></pre>
-<p>Yes, we can see there are no longer any NAs.</p>
+<p>Yes, we can see there are no longer any NAs. Next, plot the histogram of total number of steps taken with the imputed data.</p>
 <pre class="r"><code>x_data_new &lt;- final_data %.%
   group_by(date) %.%
   summarize(total_steps = sum(steps, na.rm = TRUE),
