@@ -11,6 +11,10 @@ output: html_document
 library(ggplot2)
 library(dplyr)
 library(knitr)
+library(markdown)
+# Define some options for knitr and markdown
+options(markdown.HTML.options = "")
+knitr::opts_chunk$set(tidy=FALSE, fig.path='figures/')
 ```
 
 ```{r, echo = TRUE}

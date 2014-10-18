@@ -62,7 +62,11 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <pre class="r"><code>## load needed packages
 library(ggplot2)
 library(dplyr)
-library(knitr)</code></pre>
+library(knitr)
+library(markdown)
+# Define some options for knitr and markdown
+options(markdown.HTML.options = &quot;&quot;)
+knitr::opts_chunk$set(tidy=FALSE, fig.path='figures/')</code></pre>
 <pre class="r"><code>## read raw data - assumes file is already in working directory
 
 data &lt;- read.csv(file = &quot;activity.csv&quot;, header = TRUE)
